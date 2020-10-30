@@ -31,12 +31,12 @@ Other, available Scripts
 
 In the project directory, you can run:
 
-### `npm test`
+#### `npm test`
 
 Launches the test runner in the interactive watch mode.<br>
 See the section about [running tests](#running-tests) for more information.
 
-### `npm run build`
+#### `npm run build`
 
 Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -46,7 +46,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](#deployment) for more information.
 
-### `npm run eject`
+#### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
