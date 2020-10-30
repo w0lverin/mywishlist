@@ -1,29 +1,29 @@
-#Wish List 4 Santa v1.0
+# Wish List 4 Santa v1.0
 This small app is an example of how to use REACT's CONTEXT API.<br/>
 For information about CONTEXT API click [here](https://reactjs.org/docs/context.html).
 
-##Main features of the App
+## Main features of the App
 
-####1. Home page
+#### 1. Home page
 View the Wish list and interact with the list (Add & Remove functionalities).<br />
 It reads from a GlobalContext component and uses a reducer to process the operations.
 
-####2. Add Item page
+#### 2. Add Item page
 Add a new Item to the wish list.
 
-####3. View User Page
+#### 3. View User Page
 View the current User information. Reads from a UserContext component. 
 
-####4. About Page
+#### 4. About Page
 View information about the App version and creator.
 <br/>
 <br/>
 <br/>
-##How to use the App
-#####Step 1: Install dependencies
+## How to use the App
+##### Step 1: Install dependencies
 #### `npm ci`
 
-#####Step 2: Start app
+##### Step 2: Start app
 #### `npm start`
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
