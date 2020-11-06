@@ -23,12 +23,12 @@ class AddItem extends Component {
     }
 
     if (price === '') {
-      this.setState({ errors: { email: 'Price is required' } });
+      this.setState({ errors: { price: 'Price is required' } });
       return;
     }
 
     if (link === '') {
-      this.setState({ errors: { link: 'More details Link is required' } });
+      this.setState({ errors: { link: 'Link is required' } });
       return;
     }
 
@@ -45,7 +45,6 @@ class AddItem extends Component {
       console.log('Error: ADD failed. ' + e);
     }
 
-
     // Clear State
     this.setState({
       name: '',
@@ -60,6 +59,8 @@ class AddItem extends Component {
 
   onChange = e => this.setState({ [e.target.name]: e.target.value });
 
+  doCancel = e => { this.props.history.push('/'); };
+
   render() {
     const { name, price, link, picture, errors } = this.state;
 
@@ -67,13 +68,15 @@ class AddItem extends Component {
       <GlobalContext.Consumer>
         {value => {
           const { reducer } = value;
+          const defaultPicture = "https://via.placeholder.com/200x200?text=Preview";
           return (
-            <div className="card mb-3">
-              <div className="card-header"><b>Add Item 2 Wish List</b></div>
+            <div className="card text-dark bg-light mb-3">
+              <div className="card-header text-light bg-secondary"><b>NEW ITEM</b></div>
+              <img style={{margin:'auto'}} width={'300px'} alt='Preview Image' title='Preview Image' src={picture === '' ? defaultPicture : picture} alt="Preview" />
               <div className="card-body">
                 <form onSubmit={this.onSubmit.bind(this, reducer)}>
                   <TextInputGroup
-                    label="Name"
+                    label="Name*"
                     name="name"
                     placeholder="Enter Name"
                     value={name}
@@ -81,7 +84,7 @@ class AddItem extends Component {
                     error={errors.name}
                   />
                   <TextInputGroup
-                    label="Price"
+                    label="Price*"
                     name="price"
                     type="number"
                     placeholder="Enter Price"
@@ -90,7 +93,7 @@ class AddItem extends Component {
                     error={errors.price}
                   />
                   <TextInputGroup
-                    label="More details link"
+                    label="More details link*"
                     name="link"
                     type="url"
                     placeholder="Enter URL"
@@ -99,7 +102,7 @@ class AddItem extends Component {
                     error={errors.link}
                   />
                   <TextInputGroup
-                      label="Item picture"
+                      label="Picture"
                       name="picture"
                       type="url"
                       placeholder="Enter URL"
@@ -107,11 +110,22 @@ class AddItem extends Component {
                       onChange={this.onChange}
                       error={errors.picture}
                   />
-                  <input
-                    type="submit"
-                    value="Add Item"
-                    className="btn btn-light btn-block"
-                  />
+                  <div>
+                  </div>
+                  <div align={'right'}>
+                    <input
+                        type="button"
+                        value="Cancel"
+                        className="btn btn-outline-danger btn-group-lg"
+                        onClick={this.doCancel}
+                    />
+                    &nbsp;&nbsp;
+                    <input
+                        type="submit"
+                        value="Add Item"
+                        className="btn btn-outline-success btn-group-lg"
+                    />
+                  </div>
                 </form>
               </div>
             </div>

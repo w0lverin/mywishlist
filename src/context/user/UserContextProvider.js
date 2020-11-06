@@ -8,7 +8,7 @@ const userContextReducer = (state, action) => {
         ...state,
         name: action.payload.name,
         role: action.payload.role,
-        isAdmin: action.payload.isAdmin
+        privileges: action.payload.privileges
       };
     case 'LOAD_USER':
       return defaultUser;
@@ -21,14 +21,14 @@ export class UserContextProvider extends Component {
   state = {
     name: '',
     role: '',
-    isAdmin: false,
+    privileges: '',
     reducer: action => this.setState(state => userContextReducer(state, action))
   };
 
   async componentDidMount() {
     this.setState({ name: defaultUser.name,
       role: defaultUser.role,
-      isAdmin: defaultUser.isAdmin });
+      privileges: defaultUser.privileges });
   }
 
   render() {

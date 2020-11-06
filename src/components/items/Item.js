@@ -25,18 +25,14 @@ class Item extends Component {
         {value => {
           const { reducer } = value;
           return (
-            <div className="card card-body mb-3">
+            <div className="card card-body mb-3" style={{ cursor: 'pointer' }}
+                 onClick={() => this.setState({
+                  showItemInfo: !this.state.showItemInfo
+                })
+            }>
               <h4>
                 {name}{' '}
-                <i
-                  onClick={() =>
-                    this.setState({
-                      showItemInfo: !this.state.showItemInfo
-                    })
-                  }
-                  className="fas fa-sort-down"
-                  style={{ cursor: 'pointer' }}
-                />
+                <i className={showItemInfo ? "fas fa-sort-up" : "fas fa-sort-down"} />
                 <i
                   className="fas fa-times"
                   style={{ cursor: 'pointer', float: 'right', color: 'red' }}
@@ -56,9 +52,9 @@ class Item extends Component {
               </h4>
               {showItemInfo ? (
                 <ul className="list-group">
-                  <li className="list-group-item">Price: $ {price}</li>
+                  <li className="list-group-item" style={{textAlign:'center'}}><img src={picture} alt='Preview Item' title={name} width='200px'/></li>
+                  <li className="list-group-item"><b>Price</b> ${price}</li>
                   <li className="list-group-item"><a target='_blank' href={link} alt='Show more details'>More details..</a></li>
-                  <li className="list-group-item"><img src={picture} alt='Preview' width='200px'/></li>
                 </ul>
               ) : null}
             </div>

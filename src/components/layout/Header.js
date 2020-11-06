@@ -10,7 +10,7 @@ const Header = props => {
       <div className="container">
         <a href="/" className="navbar-brand">
           <img width='100px' src={list} alt="Wish List 4 Santa" />
-          <b>{branding}</b>
+          <b style={{fontSize:'40px'}}>{branding}</b>
         </a>
         <div>
           <ul className="navbar-nav mr-auto">
@@ -20,13 +20,8 @@ const Header = props => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/item/add" className="nav-link">
-                <i className="fas fa-plus" /> Add Item
-              </Link>
-            </li>
-            <li className="nav-item">
               <Link to="/user" className="nav-link">
-                <i className="fas fa-user-circle" /> View User
+                <i className="fas fa-user-circle" /> User
               </Link>
             </li>
             <li className="nav-item">
