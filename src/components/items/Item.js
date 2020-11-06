@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {GlobalContext} from "../../context/global/GlobalContext";
+import { GlobalContext } from "../../context/global/GlobalContext";
 
 class Item extends Component {
   state = {
     showItemInfo: false
   };
 
-  onDeleteClick = async (id, dispatch) => {
+  onDeleteClick = async(id, dispatch) => {
     try {
       dispatch({ type: 'DELETE_ITEM', payload: id });
-    } catch (e) {
+    }
+    catch (e) {
       console.log('Error: DELETE failed. ' + e);
     }
   };
@@ -31,8 +32,8 @@ class Item extends Component {
                 })
             }>
               <h4>
-                {name}{' '}
                 <i className={showItemInfo ? "fas fa-sort-up" : "fas fa-sort-down"} />
+                {'  '}{name}
                 <i
                   className="fas fa-times"
                   style={{ cursor: 'pointer', float: 'right', color: 'red' }}
